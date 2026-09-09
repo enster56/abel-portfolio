@@ -117,3 +117,28 @@ document.addEventListener("mousemove", (event) => {
     cursorGlow.style.top = event.clientY + "px";
 
 });
+/* ================================
+   CREATE SHOOTING STARS
+================================ */
+
+function createShootingStar() {
+
+    const star = document.createElement("div");
+
+    star.classList.add("shooting-star");
+
+    star.style.top =
+        Math.random() * 60 + "%";
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 5 + "s";
+
+    document.body.appendChild(star);
+}
+
+for (let i = 0; i < 5; i++) {
+    createShootingStar();
+}

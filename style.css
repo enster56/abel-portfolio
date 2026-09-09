@@ -61,7 +61,7 @@ p {
 
 .logo span {
     color: #ffd900;
-    text-shadow: 0 0 15px #ffd900;
+    text-shadow: 0 0 15px #ffd9005d;
 }
 
 .nav-links {
@@ -1457,4 +1457,91 @@ button {
     box-shadow:
         0 0 20px rgba(255, 217, 0, 0.5),
         0 0 35px rgba(120, 40, 255, 0.3);
+}
+/* ================================
+   SPACE SHOOTING STARS
+================================ */
+
+.shooting-star {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow:
+        0 0 6px white,
+        0 0 12px #8c5cff;
+    transform: rotate(-45deg);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    animation: shootingStar 5s linear infinite;
+}
+
+.shooting-star::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 1px;
+    right: 0;
+    top: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.8)
+    );
+}
+
+@keyframes shootingStar {
+
+    0% {
+        transform: translate(0, 0) rotate(-45deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    30% {
+        transform: translate(-350px, 350px) rotate(-45deg);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+/* =================================
+   MOBILE SCREEN FIX
+================================= */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    * {
+        max-width: 100%;
+    }
+
+    section {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .hero,
+    .about,
+    .skills,
+    .projects,
+    .education,
+    .github,
+    .contact {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
 }
